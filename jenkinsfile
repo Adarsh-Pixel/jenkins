@@ -1,10 +1,13 @@
 pipeline {
     agent any       
-    environment {
+    environment {                                   // Pipeline variables : All the stages of the pipeline can use it
         ENV_URL = "pipeline.google.com"
     }                
     stages {
         stage('Stage One') {
+            environment {
+                    ENV_URL = "stage.google.com"
+            }                
             steps {
                 sh '''
                 echo Hello World
