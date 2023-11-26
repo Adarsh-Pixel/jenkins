@@ -6,7 +6,6 @@ pipeline {
                 sh '''
                 Hello World
                 echo Stage One Demo
-                echo Environment URL is $(ENV_URL)
                 '''
             }
         }
