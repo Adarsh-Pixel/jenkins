@@ -9,8 +9,11 @@ pipeline {
         ENV_URL = "stage.google.com"
     }
             steps {
-                sh "echo stage One Demo"
-                sh "echo environment URL is $(ENV_URL)"
+                sh '''
+                Hello World
+                echo Stage One Demo
+                echo Environment URL is $(ENV_URL)
+                '''
             }
         }
         stage('Stage Two') {
