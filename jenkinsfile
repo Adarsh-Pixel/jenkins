@@ -5,7 +5,7 @@ pipeline {
     }                
     stages {
         stage('Stage One') {
-            environment {
+            environment {                           // Stage level variable
                     ENV_URL = "stage.google.com"
             }                
             steps {
