@@ -15,3 +15,7 @@ Pipline Types :
 ---
 Pipelines are supposed to be enclosed in a file that end's with Jenkinsfile [ J as in caps ]
 ---
+
+### IMP
+Jenkins is all about stages
+No two stage should have the same name
