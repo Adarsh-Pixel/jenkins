@@ -2,6 +2,7 @@ pipeline {
     agent any       
     environment {                                   // Pipeline variables : All the stages of the pipeline can use it
         ENV_URL = "pipeline.google.com"
+        SSH_CRED = credentials('SSH_CRED')
     }                
     stages {
         stage('Stage One') {
@@ -13,6 +14,7 @@ pipeline {
                 echo Hello World
                 echo Stage One Demo
                 echo environment URL is ${ENV_URL}
+                env
                 '''
             }
         }
