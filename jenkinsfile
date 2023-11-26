@@ -4,7 +4,6 @@ pipeline {
         stage('Stage One') {
             steps {
                 sh '''
-                Hello World
                 echo Stage One Demo
                 '''
             }
