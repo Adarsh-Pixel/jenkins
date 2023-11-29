@@ -17,31 +17,35 @@ pipeline {
         maven 'maven-3.9.4' 
     }
     stages {
-        stage('Stage One') {
-            environment {                           // Stage level variable
-                    ENV_URL = "stage.google.com"
-            }                
-            steps {
-                sh '''
-                echo Hello World
-                echo Stage One Demo
-                echo environment URL is ${ENV_URL}
-                mvn --version
-                sleep 10
-                '''
+        stage ('Parallel Demo') {
+                    parallel {
+                stage('Stage One') {
+                    environment {                           // Stage level variable
+                            ENV_URL = "stage.google.com"
+                    }                
+                    steps {
+                        sh '''
+                        echo Hello World
+                        echo Stage One Demo
+                        echo environment URL is ${ENV_URL}
+                        mvn --version
+                        sleep 10
+                        '''
+                    }
+                }
+                stage('Stage Two') {
+                    steps {
+                        sh "echo stage Two Demo"
+                        sh "sleep 20"
+                    }
+                }
+                stage('Stage Three') {
+                    steps {
+                        sh "echo stage Three Demo"
+                        sh "sleep 30"
             }
-        }
-        stage('Stage Two') {
-            steps {
-                sh "echo stage Two Demo"
-                sh "sleep 20"
-            }
-        }
-        stage('Stage Three') {
-            steps {
-                sh "echo stage Three Demo"
-                sh "sleep 30"
-            }
+                }
+                    }
         }
     }
 }
