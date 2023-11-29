@@ -13,6 +13,9 @@ pipeline {
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 
+    tools {
+        maven 'maven-3.8.6' 
+    }
     stages {
         stage('Stage One') {
             environment {                           // Stage level variable
@@ -23,7 +26,7 @@ pipeline {
                 echo Hello World
                 echo Stage One Demo
                 echo environment URL is ${ENV_URL}
-                env
+                mvn clean
                 '''
             }
         }
