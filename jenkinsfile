@@ -27,17 +27,20 @@ pipeline {
                 echo Stage One Demo
                 echo environment URL is ${ENV_URL}
                 mvn --version
+                sleep 10
                 '''
             }
         }
         stage('Stage Two') {
             steps {
                 sh "echo stage Two Demo"
+                sh "sleep 20"
             }
         }
         stage('Stage Three') {
             steps {
                 sh "echo stage Three Demo"
+                sh "sleep 30"
             }
         }
     }
