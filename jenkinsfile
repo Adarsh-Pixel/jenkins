@@ -20,7 +20,7 @@ pipeline {
     }
     stages {
         stage ('Parallel Demo') {
-                    parallel {
+            parallel {
                 stage('Stage One') {
                     environment {                           // Stage level variable
                             ENV_URL = "stage.google.com"
@@ -46,9 +46,14 @@ pipeline {
                     steps {
                         sh "echo stage Three Demo"
                         sh "sleep 30"
-            }
-                }
                     }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            clearWs()
         }
     }
 }
