@@ -6,3 +6,4 @@ node {
             echo 'I execute elsewhere'
         }
     }
+}
