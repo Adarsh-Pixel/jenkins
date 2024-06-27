@@ -39,7 +39,7 @@ pipeline {
             parallel {
                 stage('Terraform Create Catalogue') {
                     steps {
-                        dir('catalogue')   { git branch: 'main', url: 'https://github.com/b55-clouddevops/catalogue.git'
+                        dir('catalogue')   { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/catalogue.git'
                                 sh '''
                                     cd mutable-infra
                                     terrafile -f env-${ENV}/Terrafile
@@ -52,7 +52,7 @@ pipeline {
                 } 
                 stage('Terraform Create user') {
                     steps {
-                        dir('user')   { git branch: 'main', url: 'https://github.com/b55-clouddevops/user.git'
+                        dir('user')   { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/user.git'
                                 sh '''
                                     cd mutable-infra
                                     terrafile -f env-${ENV}/Terrafile
@@ -65,7 +65,7 @@ pipeline {
                 }
                 stage('Terraform Create cart') {
                     steps {
-                        dir('cart')   { git branch: 'main', url: 'https://github.com/b55-clouddevops/cart.git'
+                        dir('cart')   { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/cart.git'
                                 sh '''
                                     cd mutable-infra
                                     terrafile -f env-${ENV}/Terrafile
@@ -78,7 +78,7 @@ pipeline {
                 }
                 stage('Terraform Create shipping') {
                     steps {
-                        dir('shipping')   { git branch: 'main', url: 'https://github.com/b55-clouddevops/shipping.git'
+                        dir('shipping')   { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/shipping.git'
                                 sh '''
                                     cd mutable-infra
                                     terrafile -f env-${ENV}/Terrafile
@@ -91,7 +91,7 @@ pipeline {
                 }
                 stage('Terraform Create payment') {
                     steps {
-                            dir('payment')   { git branch: 'main', url: 'https://github.com/b55-clouddevops/payment.git'
+                            dir('payment')   { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/payment.git'
                                     sh '''
                                         cd mutable-infra
                                         terrafile -f env-${ENV}/Terrafile
@@ -106,7 +106,7 @@ pipeline {
                 } 
         stage('Terraform Create frontend') {
             steps {
-                    dir('frontend')   { git branch: 'main', url: 'https://github.com/b55-clouddevops/frontend.git'
+                    dir('frontend')   { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
                             sh '''
                                 cd mutable-infra
                                 terrafile -f env-${ENV}/Terrafile
