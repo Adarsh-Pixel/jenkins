@@ -73,19 +73,19 @@ pipeline {
                 }
                 
 
-            stage('Destroying-Frontend') {
-                steps {
-                    dir('PAYMENT') {  git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
-                          sh '''
-                            cd mutable-infra
-                            sleep 100
-                            terrafile -f env-${ENV}/Terrafile
-                            terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
-                            terraform destroy -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.1 -auto-approve
-                          '''
-                         }
-                     }
-                }
+            // stage('Destroying-Frontend') {
+            //     steps {
+            //         dir('PAYMENT') {  git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
+            //               sh '''
+            //                 cd mutable-infra
+            //                 sleep 100
+            //                 terrafile -f env-${ENV}/Terrafile
+            //                 terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
+            //                 terraform destroy -var-file=env-${ENV}/${ENV}.tfvars  -var APP_VERSION=0.0.1 -auto-approve
+            //               '''
+            //              }
+            //          }
+            //     }
 
         stage('Terraform Destroy ALB') {
             steps {
