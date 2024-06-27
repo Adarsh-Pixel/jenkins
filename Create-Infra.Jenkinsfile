@@ -16,8 +16,6 @@ pipeline {
                         sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve"
                 }
             }
-    stage('Backend') {
-      parallel {
         stage('Terraform Create ALB') {
             steps {
                 git branch: 'main', url: 'https://github.com/b55-clouddevops/terraform-loadbalancers.git'
@@ -37,6 +35,8 @@ pipeline {
                         sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars -auto-approve"
                     }
                 }   
+    stage('Backend') {
+      parallel {
         stage('Terraform Create Catalogue') {
             steps {
                         git branch: 'main', url: 'https://github.com/b55-clouddevops/catalogue.git'
