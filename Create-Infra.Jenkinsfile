@@ -104,18 +104,18 @@ pipeline {
                         }
                     }
                 } 
-        // stage('Terraform Create frontend') {
-        //     steps {
-        //             dir('frontend')   { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
-        //                     sh '''
-        //                         cd mutable-infra
-        //                         terrafile -f env-${ENV}/Terrafile
-        //                         terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
-        //                         terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=100
-        //                         terraform apply -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=100 -auto-approve
-        //                     '''
-        //             }
-        //     }
-        // }    
+        stage('Terraform Create frontend') {
+            steps {
+                    dir('frontend')   { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
+                            sh '''
+                                cd mutable-infra
+                                terrafile -f env-${ENV}/Terrafile
+                                terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
+                                terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=100
+                                terraform apply -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=100 -auto-approve
+                            '''
+                    }
+            }
+        }    
     } 
 }
