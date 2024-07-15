@@ -75,7 +75,7 @@ pipeline {
 
             stage('Destroying-Frontend') {
                 steps {
-                    dir('PAYMENT') {  git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
+                    dir('FRONTEND') {  git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
                           sh '''
                             cd mutable-infra
                             sleep 100
