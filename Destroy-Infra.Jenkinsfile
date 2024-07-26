@@ -75,7 +75,7 @@ pipeline {
 
             stage('Destroying-Frontend') {
                 steps {
-                    dir('FRONTEND') {  git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
+                    dir('frontend') {  git branch: 'main', url: 'https://github.com/Adarsh-Pixel/frontend.git'
                           sh '''
                             cd mutable-infra
                             terrafile -f env-${ENV}/Terrafile
