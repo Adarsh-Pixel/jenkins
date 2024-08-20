@@ -21,7 +21,7 @@ pipeline {
                  }
             }
 
-        stage('Terraform Create Network') {
+        stage('Terraform Destroy Network') {
             steps {
                 dir('VPC') { git branch: 'main', url: 'https://github.com/Adarsh-Pixel/terraform-vpc.git'
                         sh "terrafile -f env-${ENV}/Terrafile"
